@@ -40,23 +40,25 @@ void OptionSelect::decrement()
 	std::cout << "Address of selected option: " << cursorPtr << "\n";
 }
 
-OptionSelect::OptionSelect(std::vector<std::string> options, sf::Font* font, sf::Vector2u position, Behaviour settings)
+OptionSelect::OptionSelect(std::vector<std::string> options, sf::Font& font, sf::Vector2u position, Behaviour settings)
 	:
 	settings(settings),
 	position(position)
 {
 	//Non-Selected style
-	notSelected.setFont(*font);
+	notSelected.setFont(font);
 	notSelected.setFillColor(sf::Color::White);
 	notSelected.setOutlineColor(sf::Color::Black);
 	notSelected.setStyle(sf::Text::Italic);
 	notSelected.setOutlineThickness(1.f);
 	notSelected.setString("#NOTSELECTED#");
-	optionHeight = notSelected.getGlobalBounds().height;
 	////
 
+	//Find the height of an option using the non-selected text
+	optionHeight = notSelected.getGlobalBounds().height;
+
 	//Selected style
-	selected.setFont(*font);
+	selected.setFont(font);
 	selected.setFillColor(sf::Color::Yellow);
 	selected.setOutlineColor(sf::Color::Black);
 	selected.setStyle(sf::Text::Italic | sf::Text::Bold);
@@ -68,7 +70,7 @@ OptionSelect::OptionSelect(std::vector<std::string> options, sf::Font* font, sf:
 	for (auto& txt : options) {
 		static unsigned n = 0;
 		this->options.push_back(notSelected);
-		this->options.back().setFont(*font);
+		this->options.back().setFont(font);
 		this->options.back().setString(txt);
 		this->options.back().setPosition(position.x - this->options.back().getGlobalBounds().width / 2, position.y + optionHeight * n);
 		n++;

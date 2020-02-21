@@ -11,9 +11,9 @@ private:
 	std::map<std::string, sf::SoundBuffer> soundBuffers;
 public:
 	AssetManager() {}
-	sf::Texture* texture(std::string name) { return &textures[name]; }
-	sf::Font* font(std::string name) { return &fonts[name]; }
-	sf::SoundBuffer* buffer(std::string name) { return &soundBuffers[name]; }
+	sf::Texture& texture(std::string name) { return textures[name]; }
+	sf::Font& font(std::string name) { return fonts[name]; }
+	sf::SoundBuffer& buffer(std::string name) { return soundBuffers[name]; }
 	
 	void loadTexture(std::string name, std::string filePath) {
 		textures[name] = sf::Texture();

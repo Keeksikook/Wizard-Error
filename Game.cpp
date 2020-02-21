@@ -95,7 +95,7 @@ void Game::updateDt()
 
 void Game::initStates()
 {
-	states.push(new MenuState(window, SFEvent));
+	states.push(new MenuState(window, SFEvent, manager));
 }
 
 void Game::loadAssets()

@@ -1,12 +1,12 @@
 #include "MenuState.h"
 
-MenuState::MenuState(sf::RenderWindow* window, sf::Event& event)
+MenuState::MenuState(sf::RenderWindow* window, sf::Event& event, AssetManager& manager)
 	:
 	State(window, event, manager),
 	optionSelect({ "New Game", "About", "Exit" }, manager.font("Khand"), {480,260})
 {
 
-	backgroundSprite.setTexture(*manager.texture("MainMenuBackground"));
+	backgroundSprite.setTexture(manager.texture("MainMenuBackground"));
 	backgroundSprite.setScale(960.f / 1024.f, 540.f / 1024.f);
 }
 

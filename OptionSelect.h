@@ -26,7 +26,7 @@ private:
 	void increment();
 	void decrement();
 public:
-	OptionSelect(std::vector<std::string> options, sf::Font* font, sf::Vector2u position, Behaviour settings = HoverCursor);
+	OptionSelect(std::vector<std::string> options, sf::Font& font, sf::Vector2u position, Behaviour settings = HoverCursor);
 	void draw(sf::RenderTarget* window);
 	void update();
 	void next();
